@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5 Data Visualization with ggplot2 | R Workshop ACMS2019</title>
+  <meta name="description" content="A short workshop in R.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="5 Data Visualization with ggplot2 | R Workshop ACMS2019" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A short workshop in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Data Visualization with ggplot2 | R Workshop ACMS2019" />
+  
+  <meta name="twitter:description" content="A short workshop in R." />
+  
+
+<meta name="author" content="Judith E. Canner, Alana Unfried, Ryan Botts">
+
+
+<meta name="date" content="2019-06-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="visualization-using-base-graphics.html">
+<link rel="next" href="statistical-inference.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#who-we-are"><i class="fa fa-check"></i>Who we are</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="rstudio-environment.html"><a href="rstudio-environment.html"><i class="fa fa-check"></i><b>1</b> RStudio Environment</a><ul>
+<li class="chapter" data-level="1.1" data-path="rstudio-environment.html"><a href="rstudio-environment.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing data</a></li>
+<li class="chapter" data-level="1.2" data-path="rstudio-environment.html"><a href="rstudio-environment.html#command-line"><i class="fa fa-check"></i><b>1.2</b> Command line</a></li>
+<li class="chapter" data-level="1.3" data-path="rstudio-environment.html"><a href="rstudio-environment.html#scripts-and-notebooks"><i class="fa fa-check"></i><b>1.3</b> Scripts and Notebooks</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-environment.html"><a href="rstudio-environment.html#loading-packages"><i class="fa fa-check"></i><b>1.4</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="managing-projects.html"><a href="managing-projects.html"><i class="fa fa-check"></i><b>2</b> Managing Projects</a><ul>
+<li class="chapter" data-level="2.1" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-the-r-user-community"><i class="fa fa-check"></i><b>2.1</b> Introduction to the R User Community</a></li>
+<li class="chapter" data-level="2.2" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-projects-and-working-directories"><i class="fa fa-check"></i><b>2.2</b> Introduction to Projects and Working Directories</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="managing-projects.html"><a href="managing-projects.html#working-directories"><i class="fa fa-check"></i><b>2.2.1</b> Working Directories</a></li>
+<li class="chapter" data-level="2.2.2" data-path="managing-projects.html"><a href="managing-projects.html#projects-in-r"><i class="fa fa-check"></i><b>2.2.2</b> Projects in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="managing-projects.html"><a href="managing-projects.html#more-resources-on-projects"><i class="fa fa-check"></i><b>2.3</b> More Resources on Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html"><i class="fa fa-check"></i><b>3</b> R Markdown and Reproducible Documentation</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#communication-with-r"><i class="fa fa-check"></i><b>3.1</b> Communication with R</a></li>
+<li class="chapter" data-level="3.2" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#r-markdown"><i class="fa fa-check"></i><b>3.2</b> R Markdown</a></li>
+<li class="chapter" data-level="3.3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#learning-more-about-r-markdown"><i class="fa fa-check"></i><b>3.3</b> Learning More about R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html"><i class="fa fa-check"></i><b>4</b> Visualization using base graphics</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#histograms-and-boxplots"><i class="fa fa-check"></i><b>4.1</b> Histograms and boxplots</a></li>
+<li class="chapter" data-level="4.2" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#scatterplots"><i class="fa fa-check"></i><b>4.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.3" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#bar-graphs"><i class="fa fa-check"></i><b>4.3</b> Bar graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>5</b> Data Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#what-is-a-package"><i class="fa fa-check"></i><b>5.1</b> What is a package?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>5.2</b> The Grammar of Graphics</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#geometry"><i class="fa fa-check"></i><b>5.2.1</b> Geometry</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#aesthetics"><i class="fa fa-check"></i><b>5.2.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#data"><i class="fa fa-check"></i><b>5.2.3</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#package-ggplot2"><i class="fa fa-check"></i><b>5.3</b> Package ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#layering-graphics"><i class="fa fa-check"></i><b>5.3.1</b> Layering Graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#additional-resources"><i class="fa fa-check"></i><b>5.4</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>6</b> Statistical Inference</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistical-inference.html"><a href="statistical-inference.html#anova"><i class="fa fa-check"></i><b>6.1</b> ANOVA</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-inference.html"><a href="statistical-inference.html#testing-for-proportions"><i class="fa fa-check"></i><b>6.2</b> Testing for Proportions</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-inference.html"><a href="statistical-inference.html#linear-regression"><i class="fa fa-check"></i><b>6.3</b> Linear Regression</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-inference.html"><a href="statistical-inference.html#t-tests"><i class="fa fa-check"></i><b>6.4</b> t-tests</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-inference.html"><a href="statistical-inference.html#paired-t-test"><i class="fa fa-check"></i><b>6.5</b> Paired t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html"><i class="fa fa-check"></i><b>7</b> Classroom hints and pedagogy</a><ul>
+<li class="chapter" data-level="7.1" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html#introductory-general-statistics"><i class="fa fa-check"></i><b>7.1</b> Introductory General Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html"><i class="fa fa-check"></i><b>8</b> R Packages for Teaching and Learning</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#base-r-vs.packages-for-learning"><i class="fa fa-check"></i><b>8.1</b> Base R vs. Packages for Learning</a></li>
+<li class="chapter" data-level="8.2" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-mosaic"><i class="fa fa-check"></i><b>8.2</b> Package mosaic</a></li>
+<li class="chapter" data-level="8.3" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-ggformula"><i class="fa fa-check"></i><b>8.3</b> Package ggformula</a></li>
+<li class="chapter" data-level="8.4" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-infer"><i class="fa fa-check"></i><b>8.4</b> Package infer</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="packages-for-learning-r-swirl.html"><a href="packages-for-learning-r-swirl.html"><i class="fa fa-check"></i><b>9</b> Packages for Learning R - Swirl</a></li>
+<li class="chapter" data-level="10" data-path="untidy-data.html"><a href="untidy-data.html"><i class="fa fa-check"></i><b>10</b> Untidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="untidy-data.html"><a href="untidy-data.html#tidy-data"><i class="fa fa-check"></i><b>10.1</b> Tidy Data</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="untidy-data.html"><a href="untidy-data.html#example---cleaning-the-tesla-data"><i class="fa fa-check"></i><b>10.1.1</b> Example - Cleaning the Tesla Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="untidy-data.html"><a href="untidy-data.html#miscellany-on-data-types-in-r"><i class="fa fa-check"></i><b>10.2</b> Miscellany on data types in R</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>11</b> Project</a></li>
+<li class="chapter" data-level="12" data-path="other-helpful-resources.html"><a href="other-helpful-resources.html"><i class="fa fa-check"></i><b>12</b> Other Helpful Resources</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Workshop ACMS2019</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-visualization-with-ggplot2" class="section level1">
+<h1><span class="header-section-number">5</span> Data Visualization with ggplot2</h1>
+<div id="what-is-a-package" class="section level2">
+<h2><span class="header-section-number">5.1</span> What is a package?</h2>
+<p>Packages are collections of R functions, data, and compiled code in a well-defined format. The directory where packages are stored is called the library. R comes with a standard set of packages, called the base package. Others are available for download and installation. <img src="Images/dataviz/packagesdiagram.png" alt="CC RStudio" /></p>
+<p>Packages that are curated, maintained, and reviewed are stored on the CRAN (Comprehensive R Archive Network). <img src="Images/dataviz/cran.png" alt="CC RStudio" /></p>
+<p>Once installed, packages have to be loaded into the session to use the functions stored within the package. <img src="Images/dataviz/Rpackages.png" alt="CC RStudio" /></p>
+<p>If you ever need R to do something that is not obvious, there is probably a package for that. Many packages also provide vignettes or publish background and examples in the <a href="https://www.jstatsoft.org/index">Journal of Statistical Software</a>.</p>
+<p>One of the more popular packages of packages is the <code>tidyverse</code>, which includes packages such as <code>dplyr</code>, <code>ggplot2</code>, and <code>readr</code> which make using R for data cleaning, graphics, and data science. We will explore a few of these packages today, starting with <code>ggplot2</code> and the grammar of graphics.</p>
+</div>
+<div id="the-grammar-of-graphics" class="section level2">
+<h2><span class="header-section-number">5.2</span> The Grammar of Graphics</h2>
+<p>A data visualization is a set of visual <strong>geometries</strong> whose <strong>aesthetics</strong> are mapped from data.</p>
+<div id="geometry" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Geometry</h3>
+<ul>
+<li>A geometry is a visual entity in space.<br />
+</li>
+<li>Some common geometries encountered in data visualizations:
+<ul>
+<li>Point<br />
+</li>
+<li>Line<br />
+</li>
+<li>Bar</li>
+</ul></li>
+</ul>
+</div>
+<div id="aesthetics" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Aesthetics</h3>
+<ul>
+<li>An aesthetic is a visual attribute of a geometry<br />
+</li>
+<li>Common aesthetics:
+<ul>
+<li>Position on horizontal (X)<br />
+</li>
+<li>Position on vertical (Y)<br />
+</li>
+<li>Shape<br />
+</li>
+<li>Size<br />
+</li>
+<li>Color
+<ul>
+<li>Hue<br />
+</li>
+<li>Saturation (“intensity”)<br />
+</li>
+<li>Value (“brightness”)<br />
+</li>
+</ul></li>
+<li>Text<br />
+</li>
+</ul></li>
+<li>Not all aesthetics are available for every geometry</li>
+</ul>
+</div>
+<div id="data" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> Data</h3>
+<ul>
+<li>To visualize, must have data in row-by-column format where:
+<ul>
+<li>Rows represent cases: at most one geometry per case (assuming no aggregation)<br />
+</li>
+<li>Columns represent variables: to be mapped to aesthetic attributes<br />
+</li>
+</ul></li>
+<li>Differences in geometry aesthetics map to differences in data variables<br />
+</li>
+<li>Available mappings depend on whether data variable is continuous (height) or discrete (race)<br />
+</li>
+<li>The following caveats apply:
+<ul>
+<li>An aesthetic attribute can be mapped back to at most one variable<br />
+</li>
+<li>A variable can be mapped to more than one aesthetic<br />
+</li>
+<li>Not all mappings make sense</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="package-ggplot2" class="section level2">
+<h2><span class="header-section-number">5.3</span> Package ggplot2</h2>
+<p>The package <code>ggplot2</code> stands for grammar of graphic plots. It works to layer details onto a graphic map data to specific aesthetics using specific geometries. If you have not already done so, install the <code>ggplot2</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</code></pre></div>
+<p>Open up the the R Notebook for <a href="Practice%20Notebooks/06-DataVizinggplot2.Rmd">Data Visualization with ggplot2</a> and follow along.</p>
+<p>Now load the package into R using either <code>library()</code> or <code>require()</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)</code></pre></div>
+<p>Let’s make a graphic for the Tesla data:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tesla&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data/cleanTeslaBattery.csv&quot;</span>)</code></pre></div>
+<p><strong>Your Turn 1</strong> Talk in a group - what relationship do you expect to see in the <code>tesla</code> data between the age of the battery (<code>Battery AgeDays</code>) and the amount of mileage put on the car since the battery was installed (<code>MileageSinceNewKM</code>)? (No peeking!)</p>
+<p>Run the following code in your notebook to make a graph, paying strict attention to spelling, capitalization, and parentheses.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>tesla) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>BatteryAgeDays, <span class="dt">y=</span>MileageSinceNewKM))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>Notice a few key things.</p>
+<ol style="list-style-type: decimal">
+<li><code>ggplot(data)</code> initializes the plot<br />
+</li>
+<li>adding a <code>+</code> after a line of ggplot code adds a new layer<br />
+</li>
+<li>start with the geometry<br />
+</li>
+<li>then specify the aesthetics</li>
+</ol>
+<p>Here is a similar graphic code with annotation. <img src="Images/dataviz/ggplotdiagram.png" alt="CC by RStudio" /></p>
+<p>Therefore, you can use this code template to make thousands of graphs with <strong>ggplot2</strong>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> <span class="op">&lt;</span>DATA<span class="op">&gt;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="er">&lt;</span>GEOM_FUNCTION<span class="op">&gt;</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="op">&lt;</span>MAPPINGS<span class="op">&gt;</span>))</code></pre></div>
+<p>Let’s add on some more layers! What if we want to make the variable Replacement Battery to a color aesthetic?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>tesla) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>BatteryAgeDays, <span class="dt">y=</span>MileageSinceNewKM, <span class="dt">color=</span>ReplacementBatt))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+<p>If we didn’t care about mapping the new variable to an aesthetic, but wanted to change the color, that would come outside of the <code>aes()</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data=</span>tesla) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping=</span><span class="kw">aes</span>(<span class="dt">x=</span>BatteryAgeDays, <span class="dt">y=</span>MileageSinceNewKM), <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+<p>There are a lot of resources available, including a the <a href="Documents/ggplot2%20Cheatsheet.pdf">“ggplot2 Cheatsheet”</a></p>
+<p><strong>Your Turn 2</strong> Make the following density plot, using the Cheatsheet to help you. What does the plot tell you about the Tesla driver habits in different regions?</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<div id="layering-graphics" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Layering Graphics</h3>
+<p>To get a better idea about how <code>ggplot2</code> layers aesthetics and and specific geometries onto a graphic, check out <a href="https://evamaerey.github.io/ggplot_flipbook/ggplot_flipbook_xaringan.html#1">the ggplot flipbook</a> which demonstrates how each layer modifies the graphic.</p>
+</div>
+</div>
+<div id="additional-resources" class="section level2">
+<h2><span class="header-section-number">5.4</span> Additional Resources</h2>
+<p>There are a lot of resources for <code>ggplot2</code>, here are three good places to start:</p>
+<ol style="list-style-type: decimal">
+<li><p>The <a href="http://r4ds.had.co.nz/data-visualisation.html">data visualisation</a> and <a href="http://r4ds.had.co.nz/graphics-for-communication.html">graphics for communication</a> chapters in R for data science. R for data science is designed to give you a comprehensive introduction to the <code>tidyverse</code>, and these two chapters will you get up to speed with the essentials of <code>ggplot2</code> as quickly as possible.</p></li>
+<li><p>If you’d like to take an online course, try <a href="http://shop.oreilly.com/product/0636920052807.do">Data Visualization in R With ggplot2</a> by Kara Woo.</p></li>
+<li><p>If you want to dive into making common graphics as quickly as possible, I recommend <a href="http://amzn.to/2dVfMfn">The R Graphics Cookbook</a> by Winston Chang. It provides a set of recipes to solve common graphics problems.</p></li>
+</ol>
+<p>If you’ve mastered the basics and want to learn more, read <a href="http://amzn.to/2fncG50">ggplot2: Elegant Graphics for Data Analysis</a>. It describes the theoretical underpinnings of <code>ggplot2</code> and shows you how all the pieces fit together. This book helps you understand the theory that underpins <code>ggplot2</code>, and will help you create new types of graphics specifically tailored to your needs. The book is not available for free, but you can find the complete source for the book at <a href="https://github.com/hadley/ggplot2-book" class="uri">https://github.com/hadley/ggplot2-book</a>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="visualization-using-base-graphics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-inference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

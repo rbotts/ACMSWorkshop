@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>8 R Help for learning | R Workshop ACMS2019</title>
+  <meta name="description" content="A short workshop in R.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="8 R Help for learning | R Workshop ACMS2019" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A short workshop in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 R Help for learning | R Workshop ACMS2019" />
+  
+  <meta name="twitter:description" content="A short workshop in R." />
+  
+
+<meta name="author" content="Judith E. Canner, Alana Unfried, Ryan Botts">
+
+
+<meta name="date" content="2019-05-27">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="classroom-hints-and-pedagogy.html">
+<link rel="next" href="packages-for-learning-r-swirl.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#who-we-are"><i class="fa fa-check"></i>Who we are</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="rstudio-environment.html"><a href="rstudio-environment.html"><i class="fa fa-check"></i><b>1</b> RStudio Environment</a><ul>
+<li class="chapter" data-level="1.1" data-path="rstudio-environment.html"><a href="rstudio-environment.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing data</a></li>
+<li class="chapter" data-level="1.2" data-path="rstudio-environment.html"><a href="rstudio-environment.html#command-line"><i class="fa fa-check"></i><b>1.2</b> Command line</a></li>
+<li class="chapter" data-level="1.3" data-path="rstudio-environment.html"><a href="rstudio-environment.html#scripts-and-notebooks"><i class="fa fa-check"></i><b>1.3</b> Scripts and Notebooks</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-environment.html"><a href="rstudio-environment.html#loading-packages"><i class="fa fa-check"></i><b>1.4</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="managing-projects.html"><a href="managing-projects.html"><i class="fa fa-check"></i><b>2</b> Managing Projects</a><ul>
+<li class="chapter" data-level="2.1" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-the-r-user-community"><i class="fa fa-check"></i><b>2.1</b> Introduction to the R User Community</a></li>
+<li class="chapter" data-level="2.2" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-projects-and-working-directories"><i class="fa fa-check"></i><b>2.2</b> Introduction to Projects and Working Directories</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="managing-projects.html"><a href="managing-projects.html#working-directories"><i class="fa fa-check"></i><b>2.2.1</b> Working Directories</a></li>
+<li class="chapter" data-level="2.2.2" data-path="managing-projects.html"><a href="managing-projects.html#projects-in-r"><i class="fa fa-check"></i><b>2.2.2</b> Projects in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="managing-projects.html"><a href="managing-projects.html#more-resources-on-projects"><i class="fa fa-check"></i><b>2.3</b> More Resources on Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html"><i class="fa fa-check"></i><b>3</b> R Markdown and Reproducible Documentation</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#communication-with-r"><i class="fa fa-check"></i><b>3.1</b> Communication with R</a></li>
+<li class="chapter" data-level="3.2" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#r-markdown"><i class="fa fa-check"></i><b>3.2</b> R Markdown</a></li>
+<li class="chapter" data-level="3.3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#learning-more-about-r-markdown"><i class="fa fa-check"></i><b>3.3</b> Learning More about R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html"><i class="fa fa-check"></i><b>4</b> Visualization using base graphics</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#histograms-and-boxplots"><i class="fa fa-check"></i><b>4.1</b> Histograms and boxplots</a></li>
+<li class="chapter" data-level="4.2" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#scatterplots"><i class="fa fa-check"></i><b>4.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.3" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#bar-graphs"><i class="fa fa-check"></i><b>4.3</b> Bar graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>5</b> Data Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#what-is-a-package"><i class="fa fa-check"></i><b>5.1</b> What is a package?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>5.2</b> The Grammar of Graphics</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#geometry"><i class="fa fa-check"></i><b>5.2.1</b> Geometry</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#aesthetics"><i class="fa fa-check"></i><b>5.2.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#data"><i class="fa fa-check"></i><b>5.2.3</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#package-ggplot2"><i class="fa fa-check"></i><b>5.3</b> Package ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#layering-graphics"><i class="fa fa-check"></i><b>5.3.1</b> Layering Graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#additional-resources"><i class="fa fa-check"></i><b>5.4</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>6</b> Statistical Inference</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistical-inference.html"><a href="statistical-inference.html#anova"><i class="fa fa-check"></i><b>6.1</b> ANOVA</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-inference.html"><a href="statistical-inference.html#t-tests"><i class="fa fa-check"></i><b>6.2</b> t-tests</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-inference.html"><a href="statistical-inference.html#paired-t-test"><i class="fa fa-check"></i><b>6.3</b> Paired t-test</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-inference.html"><a href="statistical-inference.html#testing-for-proportions"><i class="fa fa-check"></i><b>6.4</b> Testing for Proportions</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-inference.html"><a href="statistical-inference.html#linear-regression"><i class="fa fa-check"></i><b>6.5</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html"><i class="fa fa-check"></i><b>7</b> Classroom hints and pedagogy</a><ul>
+<li class="chapter" data-level="7.1" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html#introductory-general-statistics"><i class="fa fa-check"></i><b>7.1</b> Introductory General Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-help-for-learning.html"><a href="r-help-for-learning.html"><i class="fa fa-check"></i><b>8</b> R Help for learning</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-help-for-learning.html"><a href="r-help-for-learning.html#base-r-vs.packages-for-learning"><i class="fa fa-check"></i><b>8.1</b> Base R vs. Packages for Learning</a></li>
+<li class="chapter" data-level="8.2" data-path="r-help-for-learning.html"><a href="r-help-for-learning.html#package-mosaic"><i class="fa fa-check"></i><b>8.2</b> Package mosaic</a></li>
+<li class="chapter" data-level="8.3" data-path="r-help-for-learning.html"><a href="r-help-for-learning.html#package-ggformula"><i class="fa fa-check"></i><b>8.3</b> Package ggformula</a></li>
+<li class="chapter" data-level="8.4" data-path="r-help-for-learning.html"><a href="r-help-for-learning.html#package-infer"><i class="fa fa-check"></i><b>8.4</b> Package infer</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="packages-for-learning-r-swirl.html"><a href="packages-for-learning-r-swirl.html"><i class="fa fa-check"></i><b>9</b> Packages for Learning R - Swirl</a></li>
+<li class="chapter" data-level="10" data-path="untidy-data.html"><a href="untidy-data.html"><i class="fa fa-check"></i><b>10</b> Untidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="untidy-data.html"><a href="untidy-data.html#miscellany-on-data-types-in-r"><i class="fa fa-check"></i><b>10.1</b> Miscellany on data types in R</a></li>
+<li class="chapter" data-level="10.2" data-path="untidy-data.html"><a href="untidy-data.html#tidy-data"><i class="fa fa-check"></i><b>10.2</b> Tidy Data</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="untidy-data.html"><a href="untidy-data.html#example---cleaning-the-tesla-data"><i class="fa fa-check"></i><b>10.2.1</b> Example - Cleaning the Tesla Data</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>11</b> Project</a></li>
+<li class="chapter" data-level="12" data-path="other-helpful-resources.html"><a href="other-helpful-resources.html"><i class="fa fa-check"></i><b>12</b> Other Helpful Resources</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Workshop ACMS2019</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-help-for-learning" class="section level1">
+<h1><span class="header-section-number">8</span> R Help for learning</h1>
+<div id="base-r-vs.packages-for-learning" class="section level2">
+<h2><span class="header-section-number">8.1</span> Base R vs. Packages for Learning</h2>
+<p>There are a lot of options in base R, but often they can be clunky and a bit of a challenge for students. Download the <a href="Documents/Packages_for_Learning.Rmd">Packages for Learning Notebook</a></p>
+<p>Let’s look at an example (you can find the data called <code>KingCounty2011.csv</code> in <a href="Data/KingCounty2001.csv">linked here</a>: In 2001, a sample of 2500 births from King County, Washington contained information on both the mother and the infant at birth.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">king&lt;-<span class="kw">read.csv</span>(<span class="st">&quot;Data/KingCounty2001.csv&quot;</span>)</code></pre></div>
+<p>Suppose we want to compare the birth weight (<code>bwt</code>) of a baby between mothers who smoke (Y) versus do not smoke (N) (<code>smoker</code>).</p>
+<p>In base R, here is what the code would look like:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(king<span class="op">$</span>bwt[king<span class="op">$</span>smoker<span class="op">==</span><span class="st">&quot;Y&quot;</span>]) <span class="co">#smoke</span></code></pre></div>
+<pre><code>[1] 3185.737</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(king<span class="op">$</span>bwt[king<span class="op">$</span>smoker<span class="op">==</span><span class="st">&quot;N&quot;</span>]) <span class="co">#do not smoke</span></code></pre></div>
+<pre><code>[1] 3431.201</code></pre>
+<p>How would we calculate the standard deviation as well?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(king<span class="op">$</span>bwt[king<span class="op">$</span>smoker<span class="op">==</span><span class="st">&quot;Y&quot;</span>]) <span class="co">#smoke</span></code></pre></div>
+<pre><code>[1] 583.4798</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(king<span class="op">$</span>bwt[king<span class="op">$</span>smoker<span class="op">==</span><span class="st">&quot;N&quot;</span>]) <span class="co">#do not smoke</span></code></pre></div>
+<pre><code>[1] 553.8304</code></pre>
+<p>It quickly becomes cumbersome to do this for multiple summary statistics. So what if there is a better way?</p>
+</div>
+<div id="package-mosaic" class="section level2">
+<h2><span class="header-section-number">8.2</span> Package mosaic</h2>
+<p>The <code>mosaic</code> package was developed by Randall Pruim, Danny Kaplan, and Nicholas Horton. The goal of <a href="http://mosaic-web.org/">Project mosiac</a> is to support the learning of R in colleges and universities. Let’s try our previous problem using functions in <code>mosaic</code>.</p>
+<p>First, install the package if you haven’t done so already.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;mosaic&quot;</span>)</code></pre></div>
+<p>Now, before we load the package, let’s take a peak at the <code>mean()</code> function in base R. What error results?</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(king<span class="op">$</span>bwt<span class="op">~</span>king<span class="op">$</span>smoker)</code></pre></div>
+<p>Now load the <code>mosaic</code> pacakge and note the message provided when loaded.:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(mosaic)</code></pre></div>
+<p>Notice that it states that</p>
+<blockquote>
+<p>The following objects are masked from package:base:<br />
+max, mean, min, prod, range, sample, sum</p>
+</blockquote>
+<p>Package Mosaic overwrites several of the base package functions with new functions of the same name to make them adaptable to the formula notation. <img src="Images/mosaic.png" /></p>
+<p>We can now run our <code>mean()</code> function (overwritten by <code>mosaic</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(bwt<span class="op">~</span>smoker, <span class="dt">data=</span>king)</code></pre></div>
+<pre><code>       N        Y 
+3431.201 3185.737 </code></pre>
+<p>Many of the summary statistic functions of base R will now work in function form. <code>mosaic</code> also adds new functions, such as <code>favstats</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">favstats</span>(bwt<span class="op">~</span>smoker, <span class="dt">data=</span>king)</code></pre></div>
+<pre><code>  smoker min     Q1 median   Q3  max     mean       sd    n missing
+1      N 255 3118.0   3459 3770 5175 3431.201 553.8304 2325       0
+2      Y 414 2856.5   3275 3544 4508 3185.737 583.4798  175       0</code></pre>
+<p>In addition, it allows for some simple graphics that allow faceting:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(<span class="op">~</span>bwt<span class="op">|</span>smoker, <span class="dt">data=</span>king)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<p>and easy bargraphs without the need to create a count table:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">bargraph</span>(<span class="op">~</span>smoker, <span class="dt">data=</span>king)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<p>and overlay summary values:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">histogram</span>(<span class="op">~</span>bwt, <span class="dt">v=</span><span class="dv">2500</span>, <span class="dt">data =</span> king)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-60-1.png" width="672" /></p>
+</div>
+<div id="package-ggformula" class="section level2">
+<h2><span class="header-section-number">8.3</span> Package ggformula</h2>
+<p>Just like <code>mosaic</code>, <code>ggformula</code> was written to get students doing powerful visualization quickly, without having to learn the ins and outs of <code>ggplot2</code> or even base R. While <code>mosaic</code> has some graphing functionality, <code>ggformula</code> serves as an overlay for <code>ggplot2</code>, allowing the user to create quality graphics and to support multivariate reasoning via formulas. To learn more, check out the vignette from the <a href="https://cran.r-project.org/web/packages/ggformula/vignettes/ggformula-blog.html">ggformula package</a>.</p>
+<p>You can easily “pipe” using the <code>%&gt;%</code> symbol to overlay two graphs and you can use many of the <code>ggplot2</code> arguments within the <code>ggformula</code> functions. For example:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggformula)
+<span class="kw">gf_boxplot</span>(bwt<span class="op">~</span>smoker, <span class="dt">data=</span>king) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">gf_violin</span>(bwt<span class="op">~</span>smoker, <span class="dt">data=</span>king, <span class="dt">fill=</span><span class="op">~</span>smoker, <span class="dt">alpha=</span><span class="fl">0.3</span>)</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<p>Try out a few other plots using the King County birthweight data and <code>ggformula</code>.</p>
+</div>
+<div id="package-infer" class="section level2">
+<h2><span class="header-section-number">8.4</span> Package infer</h2>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="classroom-hints-and-pedagogy.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="packages-for-learning-r-swirl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

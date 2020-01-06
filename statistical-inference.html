@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>6 Statistical Inference | R Workshop ACMS2019</title>
+  <meta name="description" content="A short workshop in R.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="6 Statistical Inference | R Workshop ACMS2019" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A short workshop in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Statistical Inference | R Workshop ACMS2019" />
+  
+  <meta name="twitter:description" content="A short workshop in R." />
+  
+
+<meta name="author" content="Judith E. Canner, Alana Unfried, Ryan Botts">
+
+
+<meta name="date" content="2019-06-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="data-visualization-with-ggplot2.html">
+<link rel="next" href="classroom-hints-and-pedagogy.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#welcome"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#purpose"><i class="fa fa-check"></i>Purpose</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#who-we-are"><i class="fa fa-check"></i>Who we are</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="rstudio-environment.html"><a href="rstudio-environment.html"><i class="fa fa-check"></i><b>1</b> RStudio Environment</a><ul>
+<li class="chapter" data-level="1.1" data-path="rstudio-environment.html"><a href="rstudio-environment.html#importing-data"><i class="fa fa-check"></i><b>1.1</b> Importing data</a></li>
+<li class="chapter" data-level="1.2" data-path="rstudio-environment.html"><a href="rstudio-environment.html#command-line"><i class="fa fa-check"></i><b>1.2</b> Command line</a></li>
+<li class="chapter" data-level="1.3" data-path="rstudio-environment.html"><a href="rstudio-environment.html#scripts-and-notebooks"><i class="fa fa-check"></i><b>1.3</b> Scripts and Notebooks</a></li>
+<li class="chapter" data-level="1.4" data-path="rstudio-environment.html"><a href="rstudio-environment.html#loading-packages"><i class="fa fa-check"></i><b>1.4</b> Loading Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="managing-projects.html"><a href="managing-projects.html"><i class="fa fa-check"></i><b>2</b> Managing Projects</a><ul>
+<li class="chapter" data-level="2.1" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-the-r-user-community"><i class="fa fa-check"></i><b>2.1</b> Introduction to the R User Community</a></li>
+<li class="chapter" data-level="2.2" data-path="managing-projects.html"><a href="managing-projects.html#introduction-to-projects-and-working-directories"><i class="fa fa-check"></i><b>2.2</b> Introduction to Projects and Working Directories</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="managing-projects.html"><a href="managing-projects.html#working-directories"><i class="fa fa-check"></i><b>2.2.1</b> Working Directories</a></li>
+<li class="chapter" data-level="2.2.2" data-path="managing-projects.html"><a href="managing-projects.html#projects-in-r"><i class="fa fa-check"></i><b>2.2.2</b> Projects in R</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="managing-projects.html"><a href="managing-projects.html#more-resources-on-projects"><i class="fa fa-check"></i><b>2.3</b> More Resources on Projects</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html"><i class="fa fa-check"></i><b>3</b> R Markdown and Reproducible Documentation</a><ul>
+<li class="chapter" data-level="3.1" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#communication-with-r"><i class="fa fa-check"></i><b>3.1</b> Communication with R</a></li>
+<li class="chapter" data-level="3.2" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#r-markdown"><i class="fa fa-check"></i><b>3.2</b> R Markdown</a></li>
+<li class="chapter" data-level="3.3" data-path="r-markdown-and-reproducible-documentation.html"><a href="r-markdown-and-reproducible-documentation.html#learning-more-about-r-markdown"><i class="fa fa-check"></i><b>3.3</b> Learning More about R Markdown</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html"><i class="fa fa-check"></i><b>4</b> Visualization using base graphics</a><ul>
+<li class="chapter" data-level="4.1" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#histograms-and-boxplots"><i class="fa fa-check"></i><b>4.1</b> Histograms and boxplots</a></li>
+<li class="chapter" data-level="4.2" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#scatterplots"><i class="fa fa-check"></i><b>4.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="4.3" data-path="visualization-using-base-graphics.html"><a href="visualization-using-base-graphics.html#bar-graphs"><i class="fa fa-check"></i><b>4.3</b> Bar graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html"><i class="fa fa-check"></i><b>5</b> Data Visualization with ggplot2</a><ul>
+<li class="chapter" data-level="5.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#what-is-a-package"><i class="fa fa-check"></i><b>5.1</b> What is a package?</a></li>
+<li class="chapter" data-level="5.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#the-grammar-of-graphics"><i class="fa fa-check"></i><b>5.2</b> The Grammar of Graphics</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#geometry"><i class="fa fa-check"></i><b>5.2.1</b> Geometry</a></li>
+<li class="chapter" data-level="5.2.2" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#aesthetics"><i class="fa fa-check"></i><b>5.2.2</b> Aesthetics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#data"><i class="fa fa-check"></i><b>5.2.3</b> Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#package-ggplot2"><i class="fa fa-check"></i><b>5.3</b> Package ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#layering-graphics"><i class="fa fa-check"></i><b>5.3.1</b> Layering Graphics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="data-visualization-with-ggplot2.html"><a href="data-visualization-with-ggplot2.html#additional-resources"><i class="fa fa-check"></i><b>5.4</b> Additional Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="statistical-inference.html"><a href="statistical-inference.html"><i class="fa fa-check"></i><b>6</b> Statistical Inference</a><ul>
+<li class="chapter" data-level="6.1" data-path="statistical-inference.html"><a href="statistical-inference.html#anova"><i class="fa fa-check"></i><b>6.1</b> ANOVA</a></li>
+<li class="chapter" data-level="6.2" data-path="statistical-inference.html"><a href="statistical-inference.html#testing-for-proportions"><i class="fa fa-check"></i><b>6.2</b> Testing for Proportions</a></li>
+<li class="chapter" data-level="6.3" data-path="statistical-inference.html"><a href="statistical-inference.html#linear-regression"><i class="fa fa-check"></i><b>6.3</b> Linear Regression</a></li>
+<li class="chapter" data-level="6.4" data-path="statistical-inference.html"><a href="statistical-inference.html#t-tests"><i class="fa fa-check"></i><b>6.4</b> t-tests</a></li>
+<li class="chapter" data-level="6.5" data-path="statistical-inference.html"><a href="statistical-inference.html#paired-t-test"><i class="fa fa-check"></i><b>6.5</b> Paired t-test</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html"><i class="fa fa-check"></i><b>7</b> Classroom hints and pedagogy</a><ul>
+<li class="chapter" data-level="7.1" data-path="classroom-hints-and-pedagogy.html"><a href="classroom-hints-and-pedagogy.html#introductory-general-statistics"><i class="fa fa-check"></i><b>7.1</b> Introductory General Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html"><i class="fa fa-check"></i><b>8</b> R Packages for Teaching and Learning</a><ul>
+<li class="chapter" data-level="8.1" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#base-r-vs.packages-for-learning"><i class="fa fa-check"></i><b>8.1</b> Base R vs. Packages for Learning</a></li>
+<li class="chapter" data-level="8.2" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-mosaic"><i class="fa fa-check"></i><b>8.2</b> Package mosaic</a></li>
+<li class="chapter" data-level="8.3" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-ggformula"><i class="fa fa-check"></i><b>8.3</b> Package ggformula</a></li>
+<li class="chapter" data-level="8.4" data-path="r-packages-for-teaching-and-learning.html"><a href="r-packages-for-teaching-and-learning.html#package-infer"><i class="fa fa-check"></i><b>8.4</b> Package infer</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="packages-for-learning-r-swirl.html"><a href="packages-for-learning-r-swirl.html"><i class="fa fa-check"></i><b>9</b> Packages for Learning R - Swirl</a></li>
+<li class="chapter" data-level="10" data-path="untidy-data.html"><a href="untidy-data.html"><i class="fa fa-check"></i><b>10</b> Untidy Data</a><ul>
+<li class="chapter" data-level="10.1" data-path="untidy-data.html"><a href="untidy-data.html#tidy-data"><i class="fa fa-check"></i><b>10.1</b> Tidy Data</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="untidy-data.html"><a href="untidy-data.html#example---cleaning-the-tesla-data"><i class="fa fa-check"></i><b>10.1.1</b> Example - Cleaning the Tesla Data</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="untidy-data.html"><a href="untidy-data.html#miscellany-on-data-types-in-r"><i class="fa fa-check"></i><b>10.2</b> Miscellany on data types in R</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>11</b> Project</a></li>
+<li class="chapter" data-level="12" data-path="other-helpful-resources.html"><a href="other-helpful-resources.html"><i class="fa fa-check"></i><b>12</b> Other Helpful Resources</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Workshop ACMS2019</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-inference" class="section level1">
+<h1><span class="header-section-number">6</span> Statistical Inference</h1>
+<p>In this section we will cover some of the basic tools for statistical inference covered in an introductory statistics class.</p>
+<div id="anova" class="section level2">
+<h2><span class="header-section-number">6.1</span> ANOVA</h2>
+<p>We will demonstrate the use of ANOVA, but <em>t</em>-tests are quite similar.</p>
+<pre><code>Teaching Tip:  When teaching non-majors incorporating data from the research of faculty teaching courses from other disciplines can increase student engagement and course relevance.</code></pre>
+<p>For this section we are going to work with a dataset from a cancer drug development project that is part of a biology faculty member’s ongoing research at our campus, the data came from one of the student projects. Below is an image of one of the tumors.</p>
+<div class="figure">
+<img src="Images/Tumor.jpg" alt="CancerTumor" />
+<p class="caption">CancerTumor</p>
+</div>
+<p>The measurements in the file are the percent of tumor growth under various drug treatments. <a href="Data/Tumor.csv">TumorGrowth.csv</a>. Load the data now and inspect the dataset.</p>
+<p>Construct a graphical summary of your data using one of the tools from earlier.</p>
+<p>We will also construct a numerical summaries of each group using the <code>doBy</code> package. Install and load it now.</p>
+<p>For this I define a helper function:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">msd =<span class="st"> </span><span class="cf">function</span> (x) {<span class="kw">c</span>(<span class="dt">m =</span> <span class="kw">mean</span>(x), <span class="dt">stdev =</span> <span class="kw">sd</span>(x))}</code></pre></div>
+<p>We apply this function using <code>summaryBy</code>.</p>
+<p>To run an ANOVA use the command <code>aov()</code> by specifying the relationship and the <code>data</code>, as you did for summarizing the data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod =<span class="st"> </span><span class="kw">aov</span>(Growth <span class="op">~</span><span class="st"> </span>Treatment, <span class="dt">data =</span> Tumor)</code></pre></div>
+<p>Note that there is something missing that most intro stats students are asked for, what is it?</p>
+<p>This can be fixed by wrapping the <code>aov</code> command with a <code>summary()</code>. Try it.</p>
+<p>Post-hoc tests can be run by saving the ANOVA model to a variable and then passing it to <code>TukeyHSD()</code>.</p>
+<p>Try it here:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">TukeyHSD</span>(mod)</code></pre></div>
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = Growth ~ Treatment, data = Tumor)
+
+$Treatment
+                        diff          lwr          upr     p adj
+Control-Avastin  0.002222222 -0.029180472  0.033624916 0.9976809
+Tor+Ava-Avastin -0.037222222 -0.068624916 -0.005819528 0.0137317
+Torisel-Avastin -0.004444444 -0.035847138  0.026958250 0.9821827
+Tor+Ava-Control -0.039444444 -0.070847138 -0.008041750 0.0080067
+Torisel-Control -0.006666667 -0.038069361  0.024736027 0.9437365
+Torisel-Tor+Ava  0.032777778  0.001375084  0.064180472 0.0374652</code></pre>
+<p>There are other functions for the other types of post-hoc tests.</p>
+</div>
+<div id="testing-for-proportions" class="section level2">
+<h2><span class="header-section-number">6.2</span> Testing for Proportions</h2>
+<p>For simplicity we are going to continue with the <code>cleanTeslaBattery</code>. Suppose we want to look at the relationship between <code>Country</code> and <code>Model.</code></p>
+<p>Create a two-way table and a bar plot for these variables.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cleanTeslaBattery =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/cleanTeslaBattery.csv&quot;</span>)
+tbl =<span class="st"> </span><span class="kw">table</span>(cleanTeslaBattery<span class="op">$</span>Location,cleanTeslaBattery<span class="op">$</span>Model)
+tbl</code></pre></div>
+<pre><code>                                 
+                                  Model 3 LR Model S 100D Model S 60
+  Asia Pacific &amp; Europe (excl UK)          0            3         22
+  Canada                                   0            0          3
+  UK                                       0            0          1
+  USA                                      4            2         20
+                                 
+                                  Model S 60D Model S 70 Model S 70D
+  Asia Pacific &amp; Europe (excl UK)           0          8          99
+  Canada                                    1          0           0
+  UK                                        1          0           0
+  USA                                       4          0           4
+                                 
+                                  Model S 75 Model S 75D Model S 85
+  Asia Pacific &amp; Europe (excl UK)         28          20        376
+  Canada                                   1           0         20
+  UK                                       0           1          7
+  USA                                     10           7         72
+                                 
+                                  Model S 85D Model S 90 Model S 90D
+  Asia Pacific &amp; Europe (excl UK)          88          1          90
+  Canada                                    9          2           2
+  UK                                        2          0           0
+  USA                                      13          0          15
+                                 
+                                  Model S 90D 2015 Model S P100D
+  Asia Pacific &amp; Europe (excl UK)                3             8
+  Canada                                         0             0
+  UK                                             0             0
+  USA                                           10             0
+                                 
+                                  Model S P85 Model S P85+ Model S P85D
+  Asia Pacific &amp; Europe (excl UK)         141           45           75
+  Canada                                    5            1            1
+  UK                                        0            0            0
+  USA                                      32            2           15
+                                 
+                                  Model S P90D Model X 100D Model X 60D
+  Asia Pacific &amp; Europe (excl UK)            4            7           0
+  Canada                                     0            1           1
+  UK                                         0            0           0
+  USA                                        3            4           0
+                                 
+                                  Model X 75D Model X 90D Model X P90D
+  Asia Pacific &amp; Europe (excl UK)           4          11            1
+  Canada                                    0           0            0
+  UK                                        0           0            0
+  USA                                       0           5            0
+                                 
+                                  Unspecified 85 kWh
+  Asia Pacific &amp; Europe (excl UK)                 24
+  Canada                                           0
+  UK                                               0
+  USA                                              0</code></pre>
+<p>Chi-squared is as simple as running <code>chisq.test()</code> on the two-way table.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">chisq.test</span>(tbl)</code></pre></div>
+<pre><code>
+    Pearson&#39;s Chi-squared test
+
+data:  tbl
+X-squared = 254.16, df = 69, p-value &lt; 2.2e-16</code></pre>
+<p>Tests for proportions require the <code>prop.test</code> command and require just inputting the desired counts and/or population proportions. We won’t do an application here, but if 23 of 120 have a trait and we would like to see if the proprtion is significantly greater than 0.15, we might use the command</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="dv">23</span>,<span class="dv">120</span>, <span class="dt">p=</span><span class="fl">0.15</span>, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
+<pre><code>
+    1-sample proportions test with continuity correction
+
+data:  23 out of 120
+X-squared = 1.3235, df = 1, p-value = 0.125
+alternative hypothesis: true p is greater than 0.15
+95 percent confidence interval:
+ 0.136025 1.000000
+sample estimates:
+        p 
+0.1916667 </code></pre>
+<p>As with the t-tests, notice that the confidence interval is an added bonus, but requires the two-sided option.</p>
+<p>A two-sample test for proportions may be run similarly with a slight modification:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">prop.test</span>(<span class="kw">c</span>(<span class="dv">31</span>,<span class="dv">40</span>),<span class="kw">c</span>(<span class="dv">60</span>,<span class="dv">85</span>), <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
+<pre><code>
+    2-sample test for equality of proportions with continuity
+    correction
+
+data:  c(31, 40) out of c(60, 85)
+X-squared = 0.14289, df = 1, p-value = 0.3527
+alternative hypothesis: greater
+95 percent confidence interval:
+ -0.1066671  1.0000000
+sample estimates:
+   prop 1    prop 2 
+0.5166667 0.4705882 </code></pre>
+<p>where the first list specifies the counts with the trait in each of the two groups and the second list consists of the sample sizes for each of the two groups.</p>
+</div>
+<div id="linear-regression" class="section level2">
+<h2><span class="header-section-number">6.3</span> Linear Regression</h2>
+<p>Let’s go back to the Tesla Battery Data from earlier. We did linear regression when we added the regression line earlier, but now we will explore some of the other available tools with regression.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cleanTeslaBattery =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/cleanTeslaBattery.csv&quot;</span>)</code></pre></div>
+<p>Implement the linear model from before to look at the relationship between the Mileage (<code>MileageKM</code>) and Watt Hours Per KM (<code>WattHoursPerKM</code>) and assign the model to the variable <code>mod</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod =<span class="st"> </span><span class="kw">lm</span>(WattHoursPerKM <span class="op">~</span><span class="st"> </span>MileageKM, <span class="dt">data =</span> cleanTeslaBattery)
+<span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = WattHoursPerKM ~ MileageKM, data = cleanTeslaBattery)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-80.060 -26.278 -11.197   8.352 206.763 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  2.439e+02  1.743e+00 139.901  &lt; 2e-16 ***
+MileageKM   -1.766e-04  2.500e-05  -7.063 2.63e-12 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 42.5 on 1315 degrees of freedom
+  (22 observations deleted due to missingness)
+Multiple R-squared:  0.03655,   Adjusted R-squared:  0.03582 
+F-statistic: 49.89 on 1 and 1315 DF,  p-value: 2.628e-12</code></pre>
+<p>We can also easily inspect the residuals by calling the <code>residual()</code> function on the model. Try it:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">hist</span>(<span class="kw">residuals</span>(mod))</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<p>Additionally transforms of any of the variables can be performed in the following way:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(WattHoursPerKM <span class="op">~</span><span class="st"> </span><span class="kw">log</span>(MileageKM), <span class="dt">data =</span> cleanTeslaBattery)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = WattHoursPerKM ~ log(MileageKM), data = cleanTeslaBattery)
+
+Coefficients:
+   (Intercept)  log(MileageKM)  
+        286.59           -5.02  </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(<span class="kw">sqrt</span>(WattHoursPerKM) <span class="op">~</span><span class="st"> </span>MileageKM, <span class="dt">data =</span> cleanTeslaBattery)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = sqrt(WattHoursPerKM) ~ MileageKM, data = cleanTeslaBattery)
+
+Coefficients:
+(Intercept)    MileageKM  
+  1.555e+01   -5.510e-06  </code></pre>
+<p>Finally, we left out the correlation coefficient. The call for the correlation coefficient is a little different as it doesn’t use relations <code>cor(x,y, use = &quot;pairwise.complete.obs&quot;, method = &quot;pearson&quot;)</code>. Try the command here for the Mileage and Watt Hours Per KM.</p>
+<p>Note that the <code>use</code> option has been specified to omit pairs of correlations where ther is an NA, and the <code>method</code> controls the type of correlation.</p>
+</div>
+<div id="t-tests" class="section level2">
+<h2><span class="header-section-number">6.4</span> t-tests</h2>
+<p>Here is a very quick overview of t-tests. We are going to take a look at the difference in weight gain be smoking and non-smoking mothers in Kings County. Load the dataset</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Kings &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;Data/KingCounty2001.csv&quot;</span>) </code></pre></div>
+<p>Take a look at the relationship between <code>smoker</code> and <code>wgain</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(wgain <span class="op">~</span><span class="st"> </span>smoker, <span class="dt">data =</span> Kings )</code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-44-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(Kings<span class="op">$</span>smoker)</code></pre></div>
+<pre><code>   N    Y 
+2325  175 </code></pre>
+<p>two-sample <em>t</em>-test syntax is nearly identical to ANOVA syntax, except we need to replace the <code>aov</code> with <code>t.test</code> and specify the type of alternative, either “greater”, “less” or “two.tailed”, using the <code>alternative</code> option.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(wgain <span class="op">~</span><span class="st"> </span>smoker, <span class="dt">data =</span> Kings, <span class="dt">alternative =</span> <span class="st">&quot;greater&quot;</span>)</code></pre></div>
+<pre><code>
+    Welch Two Sample t-test
+
+data:  wgain by smoker
+t = -0.65319, df = 189.21, p-value = 0.7428
+alternative hypothesis: true difference in means is greater than 0
+95 percent confidence interval:
+ -3.083485       Inf
+sample estimates:
+mean in group N mean in group Y 
+       32.21806        33.09143 </code></pre>
+<p>Note that confidence intervals are included, but the alternative should be “two.sided.”</p>
+<p>One-sided <em>t</em>-tests require specifying only a single quantitative variable and also specifying the value from the null hypothesis. An example for testing that the mean <code>wgain</code> is different from 9.4 is</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(Kings<span class="op">$</span>wgain, <span class="dt">mu =</span> <span class="fl">9.4</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</code></pre></div>
+<pre><code>
+    One Sample t-test
+
+data:  Kings$wgain
+t = 85.31, df = 2499, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 9.4
+95 percent confidence interval:
+ 31.75331 32.80509
+sample estimates:
+mean of x 
+  32.2792 </code></pre>
+<p>Other options like the <code>conf.level</code> are described under the help for the function.</p>
+<p>Try computing a 90% confidence interval for the mean <code>gest</code>.</p>
+</div>
+<div id="paired-t-test" class="section level2">
+<h2><span class="header-section-number">6.5</span> Paired t-test</h2>
+<p>Paired t-tests require data in the wide format, that is two columns side by side, perhaps like this</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pairdat =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">pre=</span><span class="kw">c</span>(<span class="dv">23</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">29</span>),<span class="dt">post=</span><span class="kw">c</span>(<span class="dv">25</span>,<span class="dv">21</span>,<span class="dv">27</span>,<span class="dv">31</span>))
+pairdat</code></pre></div>
+<pre><code>  pre post
+1  23   25
+2  20   21
+3  30   27
+4  29   31</code></pre>
+<p>Note this is for example only, not for validity.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(pairdat<span class="op">$</span>pre, pairdat<span class="op">$</span>post, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>
+    Paired t-test
+
+data:  pairdat$pre and pairdat$post
+t = -0.42008, df = 3, p-value = 0.7027
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -4.287869  3.287869
+sample estimates:
+mean of the differences 
+                   -0.5 </code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-visualization-with-ggplot2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="classroom-hints-and-pedagogy.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
